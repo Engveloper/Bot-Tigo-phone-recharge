@@ -4,14 +4,21 @@
             "@babel/preset-env",
             {
                 "targets": {
-                    "node": true
-                }
+                    "esmodules": true
+                },
+                "corejs": "2",
+                "useBuiltIns": "usage"
             }
         ]
     ],
-    "ignore": [
-        "/node_modules",
-        "/build"
-    ],
-    "sourceType": "module"
+    "plugins": [
+        [
+            "module-resolver",
+            {
+                "root": [
+                    "./src"
+                ]
+            }
+        ]
+    ]
 }
