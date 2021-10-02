@@ -1,13 +1,13 @@
-import got from 'got'
+import got from 'utils/got'
 
-import config from "../config"
+import config from '../config'
 
 export async function tigoPing({ accessToken } = {}) {
-    const response = await got(config.TIGO_PING_ME_ENDPOINT, {
-        headers: {
-            authorization: accessToken ? `Bearer ${accessToken}` : undefined
-        }
-    })
+  const response = await got(config.tigo.pingMeEndpoint, {
+    headers: {
+      authorization: accessToken ? `Bearer ${accessToken}` : undefined,
+    },
+  })
 
-    return response
+  return response
 }
