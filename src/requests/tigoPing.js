@@ -1,13 +1,13 @@
-import fetch from 'node-fetch'
+import got from 'got'
 
 import config from "../config"
 
-export async function tigoPing({ accessToken }) {
-    const request = fetch(config.TIGO_PING_ME_ENDPOINT, {
+export async function tigoPing({ accessToken } = {}) {
+    const response = await got(config.TIGO_PING_ME_ENDPOINT, {
         headers: {
             authorization: accessToken ? `Bearer ${accessToken}` : undefined
         }
     })
 
-    return await request.json()
+    return response
 }
