@@ -78,3 +78,5 @@ async function rechargeMobile({ accessToken }) {
     return Promise.resolve()
   }
 }
+
+main()
