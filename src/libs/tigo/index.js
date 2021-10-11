@@ -187,20 +187,3 @@ export class TigoRecharge {
     }
   }
 }
-
-async function tigoPurchase() {
-  const tigo = new TigoRecharge({ accessToken: '', apiKey: '', deviceId: '' })
-  const isValid = await tigo.ping()
-
-  if (!isValid) {
-    throw new Error('Token is not valid')
-  }
-
-  const order = await tigo.order(``, 10)
-  const purchase = await order.purchase('', '')
-  console.log({ purchase })
-  const confirmation = await order.status()
-  console.log({ confirmation })
-}
-
-tigoPurchase()
